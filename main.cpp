@@ -1,6 +1,14 @@
 #include <iostream>
 #include <string>
 #include "misfunciones.h"
+
+#define DEBUG true
+//#define DEBUG false
+
+#if DEBUG
+    #include "debugfunciones.h"
+#endif
+
 using namespace std;
 
 /// main
@@ -18,7 +26,9 @@ int main()
     float totalRecaudadoPorProducto[20] = {0};
     int cantidadVendidaPorProducto[20] = {0};
 
-
+    #if DEBUG
+        DEBUG_cargarMarcas(codMarca, nombreMarca);
+    #endif
 
     int opcion;
     do
