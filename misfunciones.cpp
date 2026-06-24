@@ -7,26 +7,41 @@ using namespace std;
 void cargarMarcas(int codMarca[], string nombreMarca[])
 {
     const int TAM = 10;
+    int codigo = 0;
+    string nombre = "";
 
     for(int i = 0; i < TAM; i++)
     {
         do
         {
             cout << "\nIngrese el codigo de la marca: ";
-            cin >> codMarca[i];
+            cin >> codigo;
 
-            if(codMarca[i] < 1 || codMarca[i] > 10)
+            if(codigo < 1 || codigo > 10)
             {
                 cout << "Error. El codigo debe estar entre 1 y 10." << endl;
             }
 
         }
-        while(codMarca[i] < 1 || codMarca[i] > 10);
+        while(codigo < 1 || codigo > 10);
 
-        cout << "Ingrese el nombre de la marca: ";
-        cin >> nombreMarca[i];
+        codMarca[i] = codigo;
 
+        do
+        {
+            cout << "Ingrese el nombre de la marca: ";
+            cin >> nombre;
+
+            if(nombre == "")
+            {
+                cout << "Error. El nombre de la marca no puede ser vacío." << endl;
+            }
+        }
+        while(nombre == "");
+
+        nombreMarca[i] = nombre;
     }
+
     cout << "\nLote de marcas cargado correctamente." << endl;
 }
 void cargarProductos(int codMarca[],
